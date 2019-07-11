@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="css/personal_data.css">
+  <title>Document11</title>
+</head>
+<body>
+  <div class="content">
+    <div class="per-name">
+      <a href="javascript:;">个人资料</a>
+    </div>
+    <div class="per-main">
+      <form action method="get">
+        <ul>
+          <li class="main-input">
+            <label for="email">注册邮箱</label><br>
+            <input type="text" placeholder="请输入邮箱" name="email">
+          </li>
+          <li class="main-input">
+            <label for="nickName">昵称</label><br>
+            <input type="text" name="nickName">
+          </li>
+          <li>
+            <label for="sex">性别</label><br>
+            男<input type="radio" checked="checked" name="sex">
+            女<input type="radio" name="sex">
+            保密<input type="radio" name="sex">
+          </li>
+          <li class="main-input">
+            <label for="address">收货地址</label><br>
+            <input type="text" name="address" placeholder="请输入您的收货地址">
+          </li>
+          <li>
+            <label for="intr">自我介绍</label><br>
+            <textarea name="intr" id="intro" cols="75" rows="10" placeholder="写点东西介绍你自己..."></textarea>
+          </li>
+        </ul>
+        <button class="btn">保存</button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>
