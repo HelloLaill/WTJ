@@ -9,7 +9,7 @@
   display: table;
 }
 
-div.container{
+#cart{
   margin: 60px auto 0;
 }
 div.top{
@@ -78,7 +78,10 @@ tr,td{
   width:80px;
   height:80px;
 }
-
+.input{
+  width:30px;
+  text-align: center;
+}
 .del{
   width:20px;
 }
