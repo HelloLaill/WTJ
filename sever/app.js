@@ -56,30 +56,23 @@ server.get("/cart",(req,res)=>{
   //console.log(req.session.uid);
   var uid=1;
   var output={
-    product:{},
-    pic:[],
+    product:{}
   }
   if(!uid){
     res.send({code:-1,msg:"请登录"});
     return;
   }
   //2:sql
-  var sql="select wtj_product.pname,wtj_product.spec,wtj_product.price,wtj_user.uid,wtj_product.pid,wtj_cart.count from wtj_user,wtj_cart,wtj_product where wtj_user.uid=wtj_cart.user_id and wtj_product.pid=wtj_cart.product_id";
-  pool.query(sql,[uid],(err,result)=>{
+  var sql="select wtj_product.pname,wtj_product.spec,wtj_product.price,wtj_user.uid,wtj_product.pid,wtj_cart.count,wtj_product_img.sm from wtj_user,wtj_cart,wtj_product,wtj_product_img where wtj_user.uid=wtj_cart.user_id and wtj_product.pid=wtj_cart.product_id and wtj_product.pid=wtj_product_img.product_id and wtj_user.uid=? group by wtj_product.pid having count>1";
+  pool.query(sql,2,(err,result)=>{
     if(err)throw err;
     res.send({code:1,data:result})
     output.product=result[0];
-    var pid=output.product["pid"];
-    var sql2="select sm from wtj_product_img where product_id=?";
-    pool.query(sql2,[pid],(err,result)=>{
-      if(err)throw err;
-      //res.send({code:2,data:result});
-      output.pic=result;
-    })
+    console.log(output.product);
   })
 })
 
-//功能4：删除购物车中商品
+//删除购物车中商品
 server.get("/delItem",(req,res)=>{
   //1:参数购物车id
   var id = req.query.id;
@@ -98,7 +91,6 @@ server.get("/delItem",(req,res)=>{
 });
 
 //删除购物车所有选中的商品
-
 server.get("/delAll",(req,res)=>{
   //1:参数 1,2,3
   var ids = req.query.ids;
@@ -114,3 +106,29 @@ server.get("/delAll",(req,res)=>{
     }
   })
 });
+
+//删除购物车所有选中的商品
+
+//商品分页显示
+server.get("/productList",(req,res)=>{
+  var pno=req.query.pno;
+  var ps=req.query.pageSize;
+  if(!pno){pno=1}
+  if(!ps){ps=8}
+  var obj={code:1,msg:"查询成功"};
+  var sql="select wtj_product.pid,wtj_product.pname,wtj_product.ptitle,wtj_product.spec,wtj_product.price,wtj_product_img.lg from wtj_product,wtj_product_img where wtj_product.pid=wtj_product_img.product_id group by wtj_product.pid limit ?,?"
+  var off=(pno-1)*ps;
+  ps=parseInt(ps);
+  pool.query(sql,[off,ps],(err,result)=>{
+    if(err) throw err;
+    obj.data=result;
+    var sql ="select count(*) as c from wtj_product";
+    pool.query(sql,(err,result)=>{
+      if(err)throw err;
+      var pc=Math.ceil(result[0].c/ps);
+      obj.pc=pc;
+      res.send(obj);
+      console.log(obj);
+    })
+  })
+})
