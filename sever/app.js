@@ -32,7 +32,6 @@ server.listen(3000)
 
 //以下是功能
 
-//5：完成第三个功能
 //查询指定用户购物车列表
 server.get("/cart",(req,res)=>{
   //1:参数(无参数)
@@ -55,7 +54,7 @@ server.get("/cart",(req,res)=>{
   })
 })
 
-//功能4：删除购物车中商品
+//删除购物车中商品
 server.get("/delItem",(req,res)=>{
   //1:参数购物车id
   var id = req.query.id;
@@ -74,7 +73,6 @@ server.get("/delItem",(req,res)=>{
 });
 
 //删除购物车所有选中的商品
-
 server.get("/delAll",(req,res)=>{
   //1:参数 1,2,3
   var ids = req.query.ids;
@@ -90,3 +88,28 @@ server.get("/delAll",(req,res)=>{
     }
   })
 });
+
+
+//商品分页显示
+server.get("/productList",(req,res)=>{
+  var pno=req.query.pno;
+  var ps=req.query.pageSize;
+  if(!pno){pno=1}
+  if(!ps){ps=8}
+  var obj={code:1,msg:"查询成功"};
+  var sql="select wtj_product.pid,wtj_product.pname,wtj_product.ptitle,wtj_product.spec,wtj_product.price,wtj_product_img.lg from wtj_product,wtj_product_img where wtj_product.pid=wtj_product_img.product_id group by wtj_product.pid limit ?,?"
+  var off=(pno-1)*ps;
+  ps=parseInt(ps);
+  pool.query(sql,[off,ps],(err,result)=>{
+    if(err) throw err;
+    obj.data=result;
+    var sql ="select count(*) as c from wtj_product";
+    pool.query(sql,(err,result)=>{
+      if(err)throw err;
+      var pc=Math.ceil(result[0].c/ps);
+      obj.pc=pc;
+      res.send(obj);
+      console.log(obj);
+    })
+  })
+})
