@@ -75,13 +75,13 @@ CREATE TABLE wtj_product(
 INSERT INTO wtj_product VALUES(NULL,'帕拉多米北欧风格羊绒黄色木脚喷漆休闲椅','拥有的是一种宁静的气息，素雅向暖，安之若素，每个人都可以拥有','900*750*1080','黄色','客厅','北欧',1600);
 INSERT INTO wtj_product VALUES(NULL,'LOTOTO日式风格搪瓷红色茶壶','这种自然古朴的肌理感给人以温馨舒适、易于亲近之感','全宽215，上口劲宽90，高190，底径100','红色','客厅','日式',59);
 #商品详情图表
-CREATE TABLE wtj_pproduct_img(
+CREATE TABLE wtj_product_img(
   img_id INT PRIMARY KEY AUTO_INCREMENT,
   product_id VARCHAR(64),
   sm VARCHAR(128),
   lg VARCHAR(128)
 );
-INSERT INTO wtj_pproduct_img VALUES(NULL,1,'image/p1_1_sm.png','image/p1_1.png');
-INSERT INTO wtj_pproduct_img VALUES(NULL,1,'image/p1_2_sm.png','image/p1_2.png');
-INSERT INTO wtj_pproduct_img VALUES(NULL,2,'image/p2_1_sm.png','image/p2_1.png');
-INSERT INTO wtj_pproduct_img VALUES(NULL,3,'image/p2_2_sm.png','image/p2_2.png');
+INSERT INTO wtj_product_img VALUES(NULL,1,'image/p1_1_sm.png','image/p1_1.png');
+INSERT INTO wtj_product_img VALUES(NULL,1,'image/p1_2_sm.png','image/p1_2.png');
+INSERT INTO wtj_product_img VALUES(NULL,2,'image/p2_1_sm.png','image/p2_1.png');
+INSERT INTO wtj_product_img VALUES(NULL,3,'image/p2_2_sm.png','image/p2_2.png');
