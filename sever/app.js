@@ -49,7 +49,7 @@ server.get("/login",(req,res)=>{
     }
   })
 })
-//5：完成第三个功能
+
 //查询指定用户购物车列表
 server.get("/cart",(req,res)=>{
   //1:参数(无参数)
