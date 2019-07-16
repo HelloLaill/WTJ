@@ -134,7 +134,7 @@ INSERT INTO wtj_product VALUES(NULL,'九五泊系列北欧宜家E1中纤板白�
 
 
 #商品详情图表
-CREATE TABLE wtj_product_img(
+CREATE TABLE product_img(
   img_id INT PRIMARY KEY AUTO_INCREMENT,
   product_id VARCHAR(64),
   sm VARCHAR(128),
