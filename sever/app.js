@@ -49,6 +49,23 @@ server.get("/login",(req,res)=>{
     }
   })
 })
+//注册功能
+server.get("/register",(req,res)=>{
+  var uname=req.query.uname;
+  var phone=req.query.phone;
+  var email=req.query.email;
+  var upwd=req.query.upwd;
+  var sql="INSERT INTO wtj_user (uname,phone,email,upwd) VALUES (?,?,?,?)";
+  pool.query(sql,[uname,phone,email,upwd],(err,result)=>{
+    if(err)throw err;
+    console.log(result);
+    if(result.length==0){
+      res.send({code:-1,msg:"注册失败"});
+    }else{
+      res.send({code:1,msg:"注册成功"});
+    }
+  })
+})
 
 //查询指定用户购物车列表
 server.get("/cart",(req,res)=>{

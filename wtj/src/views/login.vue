@@ -49,11 +49,16 @@ export default {
       var uname=this.uname;
       var upwd=this.upwd;
       var reg=/^[0-9a-z_]{3,12}$/i;
-      if(!reg.test(uname)){
+      if(uname==""){
+        alert("用户名不能为空");
+        return;
+      }else if(!reg.test(uname)){
         alert("用户名格式不正确");
         return;
-      }
-      if(!reg.test(upwd)){
+      }if(upwd==""){
+        alert("密码不能为空");
+        return;
+      }else if(!reg.test(upwd)){
         alert("密码格式不正确");
         return;
       }

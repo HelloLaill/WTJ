@@ -6,6 +6,7 @@ import test from "./views/test.vue"
 import user from "./views/user.vue"
 import product from "./views/product.vue"
 import login from "./views/login.vue"
+import register from "./views/register.vue"
 Vue.use(Router)
 
 export default new Router({
@@ -15,6 +16,7 @@ export default new Router({
     {path:"/user",component:user},
     {path:"/product",component:product},
     {path:"/login",component:login},
+    {path:"/register",component:register},
     {path: '/',component: Home}
   ]
 })
