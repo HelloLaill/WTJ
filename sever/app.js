@@ -107,19 +107,19 @@ server.get("/delAll",(req,res)=>{
   })
 });
 
-//删除购物车所有选中的商品
-
 //商品分页显示
 server.get("/productList",(req,res)=>{
-  var pno=req.query.pno;
-  var ps=req.query.pageSize;
-  if(!pno){pno=1}
-  if(!ps){ps=8}
+  var sid=1;
+  var pno = req.query.pno;
+   var ps = req.query.pageSize;
+   // -设置默认值
+   if(!pno){pno=1}
+   if(!ps){ps=8}
   var obj={code:1,msg:"查询成功"};
-  var sql="select wtj_product.pid,wtj_product.pname,wtj_product.ptitle,wtj_product.spec,wtj_product.price,wtj_product_img.lg from wtj_product,wtj_product_img where wtj_product.pid=wtj_product_img.product_id group by wtj_product.pid limit ?,?"
-  var off=(pno-1)*ps;
-  ps=parseInt(ps);
-  pool.query(sql,[off,ps],(err,result)=>{
+  var sql="select wtj_product.pid,wtj_product.pname,wtj_product.ptitle,wtj_product.spec,wtj_product.price,wtj_product_img.lg,wtj_product.style_id,wtj_product_style.style_id  from wtj_product,wtj_product_img,wtj_product_style where wtj_product.style_id=? and wtj_product.pid=wtj_product_img.product_id  group by wtj_product.pid limit ?,?"
+  var off = (pno-1)*ps;
+  ps = parseInt(ps);
+  pool.query(sql,[sid,off,ps],(err,result)=>{
     if(err) throw err;
     obj.data=result;
     var sql ="select count(*) as c from wtj_product";
