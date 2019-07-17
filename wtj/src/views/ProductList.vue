@@ -1,5 +1,6 @@
 <template>
   <div id="productList">
+    <Header></Header>
     <div class="listContent clear">
       <div class="product" v-for="(item,i) of list" :key="i">
         <router-link class="img_show" :to="{name:'tz',params:{id:item.pid}}">
@@ -19,10 +20,18 @@
       <a href="javascript:;" class="more" @click="loadMore">加载更多</a>
       <a href="#" class="totop"></a>
     </div>
+    <Footer></Footer>
   </div>
 </template>
 <script>
+import Header from "@/components/Header.vue"
+import Footer from "@/components/Footer.vue"
 export default {
+  name:"productList",
+  components: {
+    Header,
+    Footer
+  },
   data(){
     return{
       list:[],

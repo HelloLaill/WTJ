@@ -9,8 +9,9 @@ export default {
     return{}
   },
   mounted(){
-    this.id=this.$route.params.id;
-    console.log(this.id);
+    var id=this.$route.params.id;
+    console.log(id);
+
   }
 }
 </script>

@@ -33,10 +33,10 @@
       </table>
       <div class="checkPro">
           <div class="delAllPro">
-            <span><a href="#" @click="delAll">删除所选商品</a></span>
+            <span><a href="javascript:;" @click="delAll">删除所选商品</a></span>
           </div>
-          <div class="rightConent">
-            <span>商品总计</span>
+          <div class="pay">
+            <span><a href="javascript:;" @click="payAll">付款</a></span>
           </div> 
       </div>
       
@@ -201,7 +201,7 @@ tr,td{
   text-decoration: none;
   border-radius: 5px;
 }
-.rightConent>span{
+.pay>span{
   position:absolute;
   top:80px;
   right:80px;
