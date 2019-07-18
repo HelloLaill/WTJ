@@ -131,7 +131,7 @@ server.get("/delAll",(req,res)=>{
 
 //商品分页显示
 server.get("/productList",(req,res)=>{
-  var sid=1;
+  var sid=req.query.id;
   var pno = req.query.pno;
    var ps = req.query.pageSize;
    // -设置默认值

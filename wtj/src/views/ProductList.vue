@@ -32,6 +32,7 @@ export default {
     Header,
     Footer
   },
+  
   data(){
     return{
       list:[],
@@ -40,24 +41,21 @@ export default {
     }
   },
   methods:{
-   loadMore(){
+   loadMore(id){
+     console.log(id);
      var url="productList";
       this.pno++;
-      var obj={pno:this.pno,pageSize:this.ps};
-      this.axios.get(url,{params:obj}).then(result=>{
-        //数据覆盖
-        //this.list=result.data.data;
-        //数据追加
-        //concat连接两个或多个数组 
+      var obj={pno:this.pno,pageSize:this.ps,id:id};
+      this.axios.get(url,{params:obj}).then(result=>{     
         var rows=this.list.concat(result.data.data);
         this.list=rows;
-        console.log(rows);
-        console.log(result.data.data);
+        
+        //this.reload()
       })
     }
   },
   created(){
-    this.loadMore();
+    this.loadMore(this.$route.params.id);
   }
 }
 </script>

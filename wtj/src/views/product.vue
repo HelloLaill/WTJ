@@ -3,55 +3,55 @@
     <Header></Header>
     <div class="product_details" v-for="(item,i) of list" :key="i">
       <div class="banner_all_box">
-      <!-- 导航栏部分 -->
-      <div class="productdetails_nav">
-        <a href="javascript:;">首页</a>
-        <i>&gt;</i>
-        <a href="javascript:;">商品</a>
-        <i>&gt;</i>
-        <a href="javascript:;">{{item.pname}}</a>
-      </div>
-    </div>
-	<!-- 轮播 -->
-	<Carousel v-bind:id="id"></Carousel>
-	<!-- 商品描述 -->
-    <div class="detail">
-      <div class="top">
-        <span>商品描述</span>
-      </div>
-      <!-- 商品故事 -->
-      <div class="stroy">
-        <h2 class="h2">商品故事</h2>
-        <div class="span1">{{item.ptitle}}</div>
-        <span class="bor"></span>
-      </div>
-      <!-- 商品参数 -->
-      <div class="specs">
-        <h2 class="h2">商品参数</h2>
-        <div class="span1">
-          <div class="name"><span class="specss">商品名称： {{item.pname}}</span></div>
-          <div class="title"><span class="specsss">商品故事： <span>{{item.ptitle}}</span></span></div>
-          <div class="spec"><span class="specss">商品规格： {{item.spec}}</span></div>
-          <div class="color"><span class="specsss">商品颜色： {{item.color}}</span></div>
-          <div class="type_style"><span class="specss">商品风格： {{item.type_style}}</span></div>
-          <div class="style_id"><span class="specsss">商品系列： {{item.sname}}</span></div>
-        </div>
-        <div class="cart">
-          <div class="price">商品价格： <span>￥{{item.price.toFixed(2)}}</span></div>
-          <div class="cartBtn" @click="addCart">加入购物车</div>
-        </div>
-        <span class="bor"></span>
-      </div>
-      <!-- 规格图片 -->
-      <div class="proImg clear">
-        <h2 class="h2">规格图片</h2>
-        <div class="img">
-          <img :src="'http://127.0.0.1:3000/'+item.d">
+        <!-- 导航栏部分 -->
+        <div class="productdetails_nav">
+          <a href="javascript:;">首页</a>
+          <i>&gt;</i>
+          <a href="javascript:;">商品</a>
+          <i>&gt;</i>
+          <a href="javascript:;">{{item.pname}}</a>
         </div>
       </div>
+      <!-- 轮播 -->
+      <Carousel v-bind:id="id"></Carousel>
+      <!-- 商品描述 -->
+      <div class="detail">
+        <div class="top">
+          <span>商品描述</span>
+        </div>
+        <!-- 商品故事 -->
+        <div class="stroy">
+          <h2 class="h2">商品故事</h2>
+          <div class="span1">{{item.ptitle}}</div>
+          <span class="bor"></span>
+        </div>
+        <!-- 商品参数 -->
+        <div class="specs">
+          <h2 class="h2">商品参数</h2>
+          <div class="span1">
+            <div class="name"><span class="specss">商品名称： {{item.pname}}</span></div>
+            <div class="title"><span class="specsss">商品故事： <span>{{item.ptitle}}</span></span></div>
+            <div class="spec"><span class="specss">商品规格： {{item.spec}}</span></div>
+            <div class="color"><span class="specsss">商品颜色： {{item.color}}</span></div>
+            <div class="type_style"><span class="specss">商品风格： {{item.type_style}}</span></div>
+            <div class="style_id"><span class="specsss">商品系列： {{item.sname}}</span></div>
+          </div>
+          <div class="cart">
+            <div class="price">商品价格： <span>￥{{item.price.toFixed(2)}}</span></div>
+            <div class="cartBtn" @click="addCart">加入购物车</div>
+          </div>
+          <span class="bor"></span>
+        </div>
+        <!-- 规格图片 -->
+        <div class="proImg clear">
+          <h2 class="h2">规格图片</h2>
+          <div class="img">
+            <img :src="'http://127.0.0.1:3000/'+item.d">
+          </div>
+        </div>
+      </div>
     </div>
-    </div>
-
+    <div><a href="#" class="totop"></a></div>
     <Footer></Footer>
   </div>
 
@@ -214,5 +214,15 @@ export default {
 }
 .img>img{
   width:620px;
+}
+.totop{
+  display: block;
+  position: fixed;
+  bottom:50px;
+  right:50px;
+  background:#ccc url(../assets/img/totop.png) no-repeat center center;
+  border-radius: 50%;
+  width: 40px;
+  height:40px;
 }
 </style>

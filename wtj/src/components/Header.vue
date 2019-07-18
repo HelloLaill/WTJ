@@ -3,25 +3,25 @@
     <div class="tou-left">
         <div class="tou-left-1"><a href=""><img src="../assets/img/logo.png"/></a>
         <ul class="t-ul">
-            <li ><a href="">首页</a></li>
-            <li ><a href=""><img src="../assets/img/tb1.png" alt=""/>客厅</a></li>
-            <li><a href=""><img src="../assets/img/tb2.png" alt=""/>卧室</a></li>
-            <li><a href=""><img src="../assets/img/tb3.png" alt=""/>餐厅</a></li>
-            <li><a href=""><img src="../assets/img/tb4.png" alt=""/>书房</a></li>
-            <li><a href=""><img src="../assets/img/tb5.png" alt=""/>门厅</a></li>
+            <li ><router-link :to="{path:'/'}">首页</router-link></li>
+            <li @click="btn1"><router-link :to="{name:'productlist',params:{id:1}}"><img src="../assets/img/tb1.png" alt=""/>客厅</router-link></li>
+            <li  @click="btn2"><router-link :to="{name:'productlist',params:{id:2}}"><img src="../assets/img/tb2.png" alt=""/>卧室</router-link></li>
+            <li  @click="btn3"><router-link :to="{name:'productlist',params:{id:3}}"><img src="../assets/img/tb3.png" alt=""/>餐厅</router-link></li>
+            <li  @click="btn4"><router-link :to="{name:'productlist',params:{id:4}}"><img src="../assets/img/tb4.png" alt=""/>书房</router-link></li>
+            <li  @click="btn5"><router-link :to="{name:'productlist',params:{id:5}}"><img src="../assets/img/tb5.png" alt=""/>门厅</router-link></li>
         </ul>
         </div>
         <div class="tou-div-right">
-            <a href="" class="a1">
+            <router-link :to="{path:'/Cart'}" class="a1">
                 <img src="../assets/img/cart.png" />
                 <span>购物车</span>
-            </a>
-            <a href="" >
+            </router-link>
+            <router-link :to="{path:'/'}">
                 <span>
                     <img src="../assets/img/login-no.png" alt=""/>
                     <img src="../assets/img/arrow-3.png" alt=""/>
                 </span>
-            </a>
+            </router-link>
         </div>
     </div>
 
@@ -31,7 +31,25 @@
 <script>
  
 export default {
-  name:"Header"
+  name:"Header",
+  inject:['reload'],
+	methods:{
+		btn1(){
+			this.reload()
+		},
+		btn2(){
+			this.reload()
+		},
+		btn3(){
+			this.reload()
+		},
+		btn4(){
+			this.reload()
+		},
+		btn5(){
+			this.reload()
+		}
+	}
 }
 </script>
 <style scoped>

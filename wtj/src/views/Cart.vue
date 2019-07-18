@@ -1,6 +1,6 @@
 <template>
   <div id="cart">
- 
+    <Header></Header>
     <div class="cart_content">
       <h3>购物车</h3>
       <table>
@@ -41,16 +41,20 @@
       </div>
       
     </div>
+    <Footer></Footer>
   </div>
 
 </template>
 
 <script>
 
+import Header from "@/components/Header.vue"
+import Footer from "@/components/Footer.vue"
 export default {
-  name:"Cart",
+  name:"productList",
   components: {
-    
+    Header,
+    Footer
   },
   data(){
     return{
@@ -170,10 +174,10 @@ export default {
   display: table;
 }
 #cart{
-  margin: 60px auto 0;
+  margin: 0 auto;
 }
 div.cart_content{
-  margin:100px auto;
+  margin:80px auto 160px;
   width:90%;
 }
 div.cart_content>h3{
