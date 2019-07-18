@@ -3,7 +3,7 @@
     <Header></Header>
     <div class="listContent clear">
       <div class="product" v-for="(item,i) of list" :key="i">
-        <router-link class="img_show" :to="{name:'tz',params:{id:item.pid}}">
+        <router-link class="img_show" :to="{name:'Product',params:{id:item.pid}}">
           <img :src="'http://127.0.0.1:3000/'+item.lg">
         </router-link>
         <div class="font">

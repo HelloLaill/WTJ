@@ -149,3 +149,14 @@ server.get("/productList",(req,res)=>{
     })
   })
 })
+
+//商品详情
+server.get("/product",(req,res)=>{
+  var id=req.query.id;
+  var sql="select wtj_product.*,wtj_product_img.lg,wtj_product_img.d,wtj_product_img.lg_1,wtj_product_style.sname from wtj_product,wtj_product_img,wtj_product_style where wtj_product.pid=wtj_product_img.product_id and wtj_product.style_id=wtj_product_style.style_id and wtj_product.pid=?"
+  pool.query(sql,[id],(err,result)=>{
+    if(err)throw err;
+    console.log(result);
+    res.send({code:1,data:result});
+  })
+})

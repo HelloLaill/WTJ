@@ -134,105 +134,107 @@ INSERT INTO wtj_product VALUES(NULL,'九五泊系列北欧宜家E1中纤板白�
 
 
 #商品详情图表
-CREATE TABLE product_img(
+CREATE TABLE wtj_product_img(
   img_id INT PRIMARY KEY AUTO_INCREMENT,
   product_id VARCHAR(64),
   sm VARCHAR(128),
   lg VARCHAR(128),
-  d VARCHAR(128)
+  d VARCHAR(128),
+  sm_1 VARCHAR(128),
+  lg_1 VARCHAR(128)
 );
-INSERT INTO wtj_product_img VALUES(NULL,1,'image/p1_1_sm.png','image/p1_1.png','image/p1_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,1,'image/p1_2_sm.png','image/p1_2.png','image/p1_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,2,'image/safa2_sm_1.png','image/safa2_lg_1.png','image/safa2_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,2,'image/safa2_sm_2.png','image/safa2_lg_2.png','image/safa2_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,3,'image/safa3_sm_1.png','image/safa3_lg_1.png','image/safa3_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,3,'image/safa3_sm_2.png','image/safa3_lg_2.png','image/safa3_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,4,'image/kt1_sm_1.png','image/kt1_lg_1.png','image/kt1_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,4,'image/kt1_sm_2.png','image/kt1_lg_2.png','image/kt1_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,5,'image/kt2_sm_1.png','image/kt2_lg_1.png','image/kt2_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,5,'image/kt2_sm_2.png','image/kt2_lg_2.png','image/kt2_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,6,'image/safa4_sm_1.png','image/safa4_lg_1.png','image/safa4_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,6,'image/safa4_sm_2.png','image/safa4_lg_2.png','image/safa4_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,7,'image/kt4_sm_1.png','image/kt4_lg_1.png','image/kt4_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,7,'image/kt4_sm_2.png','image/kt4_lg_2.png','image/kt4_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,8,'image/safa5_sm_1.png','image/safa5_lg_1.png','image/safa5_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,8,'image/safa5_sm_2.png','image/safa5_lg_2.png','image/safa5_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,9,'image/kt3_sm_1.png','image/kt3_lg_1.png','image/kt3_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,9,'image/kt3_sm_2.png','image/kt3_lg_2.png','image/kt3_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,10,'image/kt5_sm_1.png','image/kt5_lg_1.png','image/kt5_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,10,'image/kt5_sm_2.png','image/kt5_lg_2.png','image/kt5_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,11,'image/safa6_sm_1.png','image/safa6_lg_1.png','image/safa6_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,11,'image/safa6_sm_2.png','image/safa6_lg_2.png','image/safa6_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,12,'image/safa7_sm_1.png','image/safa7_lg_1.png','image/safa7_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,12,'image/safa7_sm_2.png','image/safa7_lg_2.png','image/safa7_d.png');
+INSERT INTO wtj_product_img VALUES(NULL,1,'image/p1_1_sm.png','image/p1_1.png','image/p1_d.png','image/p1_2_sm.png','image/p1_2.png');
+
+INSERT INTO wtj_product_img VALUES(NULL,2,'image/safa2_sm_1.png','image/safa2_lg_1.png','image/safa2_d.png','image/safa2_sm_2.png','image/safa2_lg_2.png');
+
+INSERT INTO wtj_product_img VALUES(NULL,3,'image/safa3_sm_1.png','image/safa3_lg_1.png','image/safa3_d.png','image/safa3_sm_2.png','image/safa3_lg_2.png');
+
+INSERT INTO wtj_product_img VALUES(NULL,4,'image/kt1_sm_1.png','image/kt1_lg_1.png','image/kt1_d.png','image/kt1_sm_2.png','image/kt1_lg_2.png');
+
+INSERT INTO wtj_product_img VALUES(NULL,5,'image/kt2_sm_1.png','image/kt2_lg_1.png','image/kt2_d.png','image/kt2_sm_2.png','image/kt2_lg_2.png');
+
+INSERT INTO wtj_product_img VALUES(NULL,6,'image/safa4_sm_1.png','image/safa4_lg_1.png','image/safa4_d.png','image/safa4_sm_2.png','image/safa4_lg_2.png');
+
+INSERT INTO wtj_product_img VALUES(NULL,7,'image/kt4_sm_1.png','image/kt4_lg_1.png','image/kt4_d.png','image/kt4_sm_2.png','image/kt4_lg_2.png');
+
+INSERT INTO wtj_product_img VALUES(NULL,8,'image/safa5_sm_1.png','image/safa5_lg_1.png','image/safa5_d.png','image/safa5_sm_2.png','image/safa5_lg_2.png');
+
+INSERT INTO wtj_product_img VALUES(NULL,9,'image/kt3_sm_1.png','image/kt3_lg_1.png','image/kt3_d.png','image/kt3_sm_2.png','image/kt3_lg_2.png');
+
+INSERT INTO wtj_product_img VALUES(NULL,10,'image/kt5_sm_1.png','image/kt5_lg_1.png','image/kt5_d.png','image/kt5_sm_2.png','image/kt5_lg_2.png');
+
+INSERT INTO wtj_product_img VALUES(NULL,11,'image/safa6_sm_1.png','image/safa6_lg_1.png','image/safa6_d.png','image/safa6_sm_2.png','image/safa6_lg_2.png');
+
+INSERT INTO wtj_product_img VALUES(NULL,12,'image/safa7_sm_1.png','image/safa7_lg_1.png','image/safa7_d.png','image/safa7_sm_2.png','image/safa7_lg_2.png');
+
 #卧室
-INSERT INTO wtj_product_img VALUES(NULL,13,'image/ws1_sm_1.png','image/ws1_lg_1.png','image/ws1_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,13,'image/ws1_sm_2.png','image/ws1_lg_2.png','image/ws1_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,14,'image/ws2_sm_1.png','image/ws2_lg_1.png','image/ws2_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,14,'image/ws2_sm_2.png','image/ws2_lg_2.png','image/ws2_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,15,'image/ws3_sm_1.png','image/ws3_lg_1.png','image/ws3_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,15,'image/ws3_sm_2.png','image/ws3_lg_2.png','image/ws3_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,16,'image/ws4_sm_1.png','image/ws4_lg_1.png','image/ws4_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,16,'image/ws4_sm_2.png','image/ws4_lg_2.png','image/ws4_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,17,'image/ws5_sm_1.png','image/ws5_lg_1.png','image/ws5_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,17,'image/ws5_sm_2.png','image/ws5_lg_2.png','image/ws5_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,18,'image/ws6_sm_1.png','image/ws6_lg_1.png','image/ws6_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,18,'image/ws6_sm_2.png','image/ws6_lg_2.png','image/ws6_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,19,'image/ws7_sm_1.png','image/ws7_lg_1.png','image/ws7_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,19,'image/ws7_sm_2.png','image/ws7_lg_2.png','image/ws7_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,20,'image/ws8_sm_1.png','image/ws8_lg_1.png','image/ws8_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,20,'image/ws8_sm_2.png','image/ws8_lg_2.png','image/ws8_d.png');
+INSERT INTO wtj_product_img VALUES(NULL,13,'image/ws1_sm_1.png','image/ws1_lg_1.png','image/ws1_d.png','image/ws1_sm_2.png','image/ws1_lg_2.png');
+
+INSERT INTO wtj_product_img VALUES(NULL,14,'image/ws2_sm_1.png','image/ws2_lg_1.png','image/ws2_d.png','image/ws2_sm_2.png','image/ws2_lg_2.png');
+
+INSERT INTO wtj_product_img VALUES(NULL,15,'image/ws3_sm_1.png','image/ws3_lg_1.png','image/ws3_d.png','image/ws3_sm_2.png','image/ws3_lg_2.png');
+
+INSERT INTO wtj_product_img VALUES(NULL,16,'image/ws4_sm_1.png','image/ws4_lg_1.png','image/ws4_d.png','image/ws4_sm_2.png','image/ws4_lg_2.png');
+
+INSERT INTO wtj_product_img VALUES(NULL,17,'image/ws5_sm_1.png','image/ws5_lg_1.png','image/ws5_d.png','image/ws5_sm_2.png','image/ws5_lg_2.png');
+
+INSERT INTO wtj_product_img VALUES(NULL,18,'image/ws6_sm_1.png','image/ws6_lg_1.png','image/ws6_d.png','image/ws6_sm_2.png','image/ws6_lg_2.png');
+
+INSERT INTO wtj_product_img VALUES(NULL,19,'image/ws7_sm_1.png','image/ws7_lg_1.png','image/ws7_d.png','image/ws7_sm_2.png','image/ws7_lg_2.png');
+
+INSERT INTO wtj_product_img VALUES(NULL,20,'image/ws8_sm_1.png','image/ws8_lg_1.png','image/ws8_d.png','image/ws8_sm_2.png','image/ws8_lg_2.png');
+
 #餐厅
-INSERT INTO wtj_product_img VALUES(NULL,21,'image/ct1_sm_1.png','image/ct1_lg_1.png','image/ct1_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,21,'image/ct1_sm_2.png','image/ct1_lg_2.png','image/ct1_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,22,'image/ct2_sm_1.png','image/ct2_lg_1.png','image/ct2_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,22,'image/ct2_sm_2.png','image/ct2_lg_2.png','image/ct2_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,23,'image/ct3_sm_1.png','image/ct3_lg_1.png','image/ct3_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,23,'image/ct3_sm_2.png','image/ct3_lg_2.png','image/ct3_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,24,'image/ct4_sm_1.png','image/ct4_lg_1.png','image/ct4_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,24,'image/ct4_sm_2.png','image/ct4_lg_2.png','image/ct4_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,25,'image/ct5_sm_1.png','image/ct5_lg_1.png','image/ct5_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,25,'image/ct5_sm_2.png','image/ct5_lg_2.png','image/ct5_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,26,'image/ct6_sm_1.png','image/ct6_lg_1.png','image/ct6_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,26,'image/ct6_sm_2.png','image/ct6_lg_2.png','image/ct6_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,27,'image/ct7_sm_1.png','image/ct7_lg_1.png','image/ct7_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,27,'image/ct7_sm_2.png','image/ct7_lg_2.png','image/ct7_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,28,'image/ct8_sm_1.png','image/ct8_lg_1.png','image/ct8_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,28,'image/ct8_sm_2.png','image/ct8_lg_2.png','image/ct8_d.png');
+INSERT INTO wtj_product_img VALUES(NULL,21,'image/ct1_sm_1.png','image/ct1_lg_1.png','image/ct1_d.png','image/ct1_sm_2.png','image/ct1_lg_2.png');
+
+INSERT INTO wtj_product_img VALUES(NULL,22,'image/ct2_sm_1.png','image/ct2_lg_1.png','image/ct2_d.png','image/ct2_sm_2.png','image/ct2_lg_2.png');
+
+INSERT INTO wtj_product_img VALUES(NULL,23,'image/ct3_sm_1.png','image/ct3_lg_1.png','image/ct3_d.png','image/ct3_sm_2.png','image/ct3_lg_2.png');
+
+INSERT INTO wtj_product_img VALUES(NULL,24,'image/ct4_sm_1.png','image/ct4_lg_1.png','image/ct4_d.png','image/ct4_sm_2.png','image/ct4_lg_2.png');
+
+INSERT INTO wtj_product_img VALUES(NULL,25,'image/ct5_sm_1.png','image/ct5_lg_1.png','image/ct5_d.png','image/ct5_sm_2.png','image/ct5_lg_2.png');
+
+INSERT INTO wtj_product_img VALUES(NULL,26,'image/ct6_sm_1.png','image/ct6_lg_1.png','image/ct6_d.png','image/ct6_sm_2.png','image/ct6_lg_2.png');
+
+INSERT INTO wtj_product_img VALUES(NULL,27,'image/ct7_sm_1.png','image/ct7_lg_1.png','image/ct7_d.png','image/ct7_sm_2.png','image/ct7_lg_2.png');
+
+INSERT INTO wtj_product_img VALUES(NULL,28,'image/ct8_sm_1.png','image/ct8_lg_1.png','image/ct8_d.png','image/ct8_sm_2.png','image/ct8_lg_2.png');
+
 #书房
-INSERT INTO wtj_product_img VALUES(NULL,29,'image/sf1_sm_1.png','image/sf1_lg_1.png','image/sf1_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,29,'image/sf1_sm_2.png','image/sf1_lg_2.png','image/sf1_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,30,'image/sf2_sm_1.png','image/sf2_lg_1.png','image/sf2_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,30,'image/sf2_sm_2.png','image/sf2_lg_2.png','image/sf2_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,31,'image/sf3_sm_1.png','image/sf3_lg_1.png','image/sf3_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,31,'image/sf3_sm_2.png','image/sf3_lg_2.png','image/sf3_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,32,'image/sf4_sm_1.png','image/sf4_lg_1.png','image/sf4_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,32,'image/sf4_sm_2.png','image/sf4_lg_2.png','image/sf4_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,33,'image/sf5_sm_1.png','image/sf5_lg_1.png','image/sf5_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,33,'image/sf5_sm_2.png','image/sf5_lg_2.png','image/sf5_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,34,'image/sf6_sm_1.png','image/sf6_lg_1.png','image/sf6_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,34,'image/sf6_sm_2.png','image/sf6_lg_2.png','image/sf6_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,35,'image/sf7_sm_1.png','image/sf7_lg_1.png','image/sf7_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,35,'image/sf7_sm_2.png','image/sf7_lg_2.png','image/sf7_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,36,'image/sf8_sm_1.png','image/sf8_lg_1.png','image/sf8_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,36,'image/sf8_sm_2.png','image/sf8_lg_2.png','image/sf8_d.png');
+INSERT INTO wtj_product_img VALUES(NULL,29,'image/sf1_sm_1.png','image/sf1_lg_1.png','image/sf1_d.png','image/sf1_sm_2.png','image/sf1_lg_2.png');
+
+INSERT INTO wtj_product_img VALUES(NULL,30,'image/sf2_sm_1.png','image/sf2_lg_1.png','image/sf2_d.png','image/sf2_sm_2.png','image/sf2_lg_2.png');
+
+INSERT INTO wtj_product_img VALUES(NULL,31,'image/sf3_sm_1.png','image/sf3_lg_1.png','image/sf3_d.png','image/sf3_sm_2.png','image/sf3_lg_2.png');
+
+INSERT INTO wtj_product_img VALUES(NULL,32,'image/sf4_sm_1.png','image/sf4_lg_1.png','image/sf4_d.png','image/sf4_sm_2.png','image/sf4_lg_2.png');
+
+INSERT INTO wtj_product_img VALUES(NULL,33,'image/sf5_sm_1.png','image/sf5_lg_1.png','image/sf5_d.png','image/sf5_sm_2.png','image/sf5_lg_2.png');
+
+INSERT INTO wtj_product_img VALUES(NULL,34,'image/sf6_sm_1.png','image/sf6_lg_1.png','image/sf6_d.png','image/sf6_sm_2.png','image/sf6_lg_2.png');
+
+INSERT INTO wtj_product_img VALUES(NULL,35,'image/sf7_sm_1.png','image/sf7_lg_1.png','image/sf7_d.png','image/sf7_sm_2.png','image/sf7_lg_2.png');
+
+INSERT INTO wtj_product_img VALUES(NULL,36,'image/sf8_sm_1.png','image/sf8_lg_1.png','image/sf8_d.png','image/sf8_sm_2.png','image/sf8_lg_2.png');
+
 #门厅
-INSERT INTO wtj_product_img VALUES(NULL,37,'image/mt1_sm_1.png','image/mt1_lg_1.png','image/mt1_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,37,'image/mt1_sm_2.png','image/mt1_lg_2.png','image/mt1_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,38,'image/mt2_sm_1.png','image/mt2_lg_1.png','image/mt2_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,38,'image/mt2_sm_2.png','image/mt2_lg_2.png','image/mt2_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,39,'image/mt3_sm_1.png','image/mt3_lg_1.png','image/mt3_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,39,'image/mt3_sm_2.png','image/mt3_lg_2.png','image/mt3_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,40,'image/mt4_sm_1.png','image/mt4_lg_1.png','image/mt4_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,40,'image/mt4_sm_2.png','image/mt4_lg_2.png','image/mt4_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,41,'image/mt5_sm_1.png','image/mt5_lg_1.png','image/mt5_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,41,'image/mt5_sm_2.png','image/mt5_lg_2.png','image/mt5_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,42,'image/mt6_sm_1.png','image/mt6_lg_1.png','image/mt6_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,42,'image/mt6_sm_2.png','image/mt6_lg_2.png','image/mt6_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,43,'image/mt7_sm_1.png','image/mt7_lg_1.png','image/mt7_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,43,'image/mt7_sm_2.png','image/mt7_lg_2.png','image/mt7_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,44,'image/mt8_sm_1.png','image/mt8_lg_1.png','image/mt8_d.png');
-INSERT INTO wtj_product_img VALUES(NULL,44,'image/mt8_sm_2.png','image/mt8_lg_2.png','image/mt8_d.png');
+INSERT INTO wtj_product_img VALUES(NULL,37,'image/mt1_sm_1.png','image/mt1_lg_1.png','image/mt1_d.png','image/mt1_sm_2.png','image/mt1_lg_2.png');
+
+INSERT INTO wtj_product_img VALUES(NULL,38,'image/mt2_sm_1.png','image/mt2_lg_1.png','image/mt2_d.png','image/mt2_sm_2.png','image/mt2_lg_2.png');
+
+INSERT INTO wtj_product_img VALUES(NULL,39,'image/mt3_sm_1.png','image/mt3_lg_1.png','image/mt3_d.png','image/mt3_sm_2.png','image/mt3_lg_2.png');
+
+INSERT INTO wtj_product_img VALUES(NULL,40,'image/mt4_sm_1.png','image/mt4_lg_1.png','image/mt4_d.png','image/mt4_sm_2.png','image/mt4_lg_2.png');
+
+INSERT INTO wtj_product_img VALUES(NULL,41,'image/mt5_sm_1.png','image/mt5_lg_1.png','image/mt5_d.png','image/mt5_sm_2.png','image/mt5_lg_2.png');
+
+INSERT INTO wtj_product_img VALUES(NULL,42,'image/mt6_sm_1.png','image/mt6_lg_1.png','image/mt6_d.png','image/mt6_sm_2.png','image/mt6_lg_2.png');
+
+INSERT INTO wtj_product_img VALUES(NULL,43,'image/mt7_sm_1.png','image/mt7_lg_1.png','image/mt7_d.png','image/mt7_sm_2.png','image/mt7_lg_2.png');
+
+INSERT INTO wtj_product_img VALUES(NULL,44,'image/mt8_sm_1.png','image/mt8_lg_1.png','image/mt8_d.png','image/mt8_sm_2.png','image/mt8_lg_2.png');
+
 
 
 #首页展示产品表
