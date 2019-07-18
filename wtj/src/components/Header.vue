@@ -16,12 +16,12 @@
                 <img src="../assets/img/cart.png" />
                 <span>购物车</span>
             </a>
-            <a href="" >
+            <router-link :to="{path:'/login'}">
                 <span>
                     <img src="../assets/img/login-no.png" alt=""/>
                     <img src="../assets/img/arrow-3.png" alt=""/>
                 </span>
-            </a>
+            </router-link>
         </div>
     </div>
 

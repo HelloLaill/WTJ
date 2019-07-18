@@ -29,7 +29,8 @@
           </li>
           <li align="center">
             <span class="my-ulFont1">还不是会员？</span>
-            <a href="" class="upwd-a"><span>立即注册</span></a>
+            <router-link :to="{path:'/register'}" class="upwd-a"><span>立即注册</span>
+            </router-link>
           </li>
         </ul>
       </div>
@@ -67,7 +68,7 @@ export default {
       this.axios.get(url,{params:obj}).then(result=>{
         console.log(result);
         if(result.data.code>0){
-          this.$router.push("/user")
+          this.$router.push("/")
         }else{
           alert("用户名或密码错误")
         }

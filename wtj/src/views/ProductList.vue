@@ -44,6 +44,7 @@ export default {
      var url="productList";
       this.pno++;
       var obj={pno:this.pno,pageSize:this.ps};
+      console.log(obj)
       this.axios.get(url,{params:obj}).then(result=>{
         //数据覆盖
         //this.list=result.data.data;
