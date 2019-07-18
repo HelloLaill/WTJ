@@ -4,8 +4,8 @@ import router from './router'
 import store from './store'
 import axios from "./axios"
 import Vuex from "vuex"
-
 Vue.config.productionTip = false
+
 new Vue({
   router,
   store,

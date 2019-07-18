@@ -38,7 +38,7 @@
         </div>
         <div class="cart">
           <div class="price">商品价格： <span>￥{{item.price.toFixed(2)}}</span></div>
-          <a href="" class="cartBtn">加入购物车</a>
+          <div class="cartBtn" @click="addCart">加入购物车</div>
         </div>
         <span class="bor"></span>
       </div>
@@ -64,8 +64,8 @@ export default {
   name:"productList",
   components: {
     Header,
-	Footer,
-	Carousel
+	  Footer,
+	  Carousel
   },
   data(){
     return{
@@ -82,7 +82,16 @@ export default {
           this.list=rows;
           //console.log(this.list[0])
       })
-	  }
+    },
+    addCart(id){
+    var id=this.$route.params.id;
+    console.log(id);
+    var url="addCart";
+    var obj={id};
+      	this.axios.get(url,{params:obj}).then(result=>{
+          alert("加入成功")
+      })
+	  },
   },
   created(){
   this.loadMore(this.$route.params.id);
@@ -170,7 +179,7 @@ export default {
 .name,.spec,.type_style{
   padding:5px 0;
 }
-.price>span{color:#F00}
+.price>span{color:#ff8b64}
 .cart{
   border:1px solid #ccc;
   width:300px;
@@ -184,7 +193,6 @@ export default {
   padding:20px 0;
 }
 .cartBtn{
-  display: block;
   width: 100px;
   height: 35px;
   border-radius: 5px;
@@ -194,6 +202,7 @@ export default {
   text-align: center;
   line-height: 35px;
   margin: 0 auto;
+  cursor:pointer;
 }
 .proImg{
   width: 90%;
