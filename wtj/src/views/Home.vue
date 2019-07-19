@@ -4,7 +4,7 @@
     <Carousel1></Carousel1>
     <div class="text">
       <span>推荐商品</span>
-      <a href="javascript:;" @click="add">更多+</a>
+      <a href="javascript:;" @click="add" class="more">更多+</a>
     </div>
 
     <div class="listContent clear">
@@ -153,16 +153,6 @@ export default {
   line-height: 35px;
   border-radius: 5px;
   margin: 40px auto 0;
-}
-.totop{
-  display: block;
-  position: fixed;
-  bottom:50px;
-  right:50px;
-  background:#ccc url(../assets/img/totop.png) no-repeat center center;
-  border-radius: 50%;
-  width: 40px;
-  height:40px;
 }
 
 </style>
