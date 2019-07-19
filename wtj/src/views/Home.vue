@@ -39,8 +39,6 @@ export default {
   data(){
     return{
       list:[],
-      pno:0,
-      ps:8
     }
   },
   methods:{

@@ -80,12 +80,14 @@ server.get("/cart",(req,res)=>{
     return;
   }
   //2:sql
-  var sql="select wtj_product.pname,wtj_product.spec,wtj_product.price,wtj_user.uid,wtj_product.pid,wtj_cart.count,wtj_product_img.sm from wtj_user,wtj_cart,wtj_product,wtj_product_img where wtj_user.uid=wtj_cart.user_id and wtj_product.pid=wtj_cart.product_id and wtj_product.pid=wtj_product_img.product_id and wtj_user.uid=? group by wtj_product.pid having count>1";
-  pool.query(sql,2,(err,result)=>{
+  var sql="select wtj_product.pname,wtj_product.spec,wtj_product.price,wtj_user.uid,wtj_product.pid,wtj_cart.cid,wtj_cart.count,wtj_product_img.sm from wtj_user,wtj_cart,wtj_product,wtj_product_img where wtj_user.uid=wtj_cart.user_id and wtj_product.pid=wtj_cart.product_id and wtj_product.pid=wtj_product_img.product_id and wtj_user.uid=?";
+  pool.query(sql,1,(err,result)=>{
     if(err)throw err;
     res.send({code:1,data:result})
     output.product=result[0];
-    console.log(output.product);
+    console.log(uid);
+    //console.log(result);
+    //console.log(output.product);
   })
 })
 
@@ -93,6 +95,7 @@ server.get("/cart",(req,res)=>{
 server.get("/delItem",(req,res)=>{
   //1:参数购物车id
   var id = req.query.id;
+  console.log(id+"id")
   //2:sql 删除指定数据
   var sql = "DELETE FROM wtj_cart WHERE cid = ?";
   //3:json
@@ -101,8 +104,10 @@ server.get("/delItem",(req,res)=>{
     console.log(result);
     if(result.affectedRows>0){
       res.send({code:1,msg:"删除成功"});
+      console.log("成功")
     }else{
       res.send({code:-1,msg:"删除失败"});
+      console.log("失败")
     }
   })
 });
@@ -126,7 +131,7 @@ server.get("/delAll",(req,res)=>{
 
 //商品分页显示
 server.get("/productList",(req,res)=>{
-  var sid=1;
+  var sid=req.query.id;
   var pno = req.query.pno;
    var ps = req.query.pageSize;
    // -设置默认值
@@ -147,5 +152,30 @@ server.get("/productList",(req,res)=>{
       res.send(obj);
       console.log(obj);
     })
+  })
+})
+
+//商品详情
+server.get("/product",(req,res)=>{
+  var id=req.query.id;
+  var sql="select wtj_product.*,wtj_product_img.lg,wtj_product_img.d,wtj_product_img.lg_1,wtj_product_style.sname from wtj_product,wtj_product_img,wtj_product_style where wtj_product.pid=wtj_product_img.product_id and wtj_product.style_id=wtj_product_style.style_id and wtj_product.pid=?"
+  pool.query(sql,[id],(err,result)=>{
+    if(err)throw err;
+    console.log(result);
+    res.send({code:1,data:result});
+  })
+})
+
+
+//加入购物车
+server.get("/addCart",(req,res)=>{
+  var pid=req.query.id;
+  //var uid=req.session.uid;
+  var uid=1;
+  var sql ="insert into wtj_cart values(NULL,?,?,1)";
+  pool.query(sql,[uid,pid],(err,result)=>{
+    if(err)throw err;
+    res.send(result);
+    console.log(result);
   })
 })

@@ -3,7 +3,7 @@
     <Header></Header>
     <div class="listContent clear">
       <div class="product" v-for="(item,i) of list" :key="i">
-        <router-link class="img_show" :to="{name:'tz',params:{id:item.pid}}">
+        <router-link class="img_show" :to="{name:'Product',params:{id:item.pid}}">
           <img :src="'http://127.0.0.1:3000/'+item.lg">
         </router-link>
         <div class="font">
@@ -32,6 +32,7 @@ export default {
     Header,
     Footer
   },
+  
   data(){
     return{
       list:[],
@@ -40,7 +41,8 @@ export default {
     }
   },
   methods:{
-   loadMore(){
+   loadMore(id){
+     console.log(id);
      var url="productList";
       this.pno++;
       var obj={pno:this.pno,pageSize:this.ps};
@@ -52,13 +54,13 @@ export default {
         //concat连接两个或多个数组 
         var rows=this.list.concat(result.data.data);
         this.list=rows;
-        console.log(rows);
-        console.log(result.data.data);
+        
+        //this.reload()
       })
     }
   },
   created(){
-    this.loadMore();
+    this.loadMore(this.$route.params.id);
   }
 }
 </script>

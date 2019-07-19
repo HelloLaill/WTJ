@@ -1,6 +1,6 @@
 <template>
   <div id="cart">
- 
+    <Header></Header>
     <div class="cart_content">
       <h3>购物车</h3>
       <table>
@@ -27,7 +27,7 @@
               <button @click="item.count++">+</button>
             </td>
             <td>￥{{(item.price*item.count).toFixed(2)}}</td>
-            <td :data-id="item.id" @click="delItem"><img src="../assets/img/del.png" class="del"></td>
+            <td :data-id="item.cid" @click="delItem(item.cid)"><img src="../assets/img/del.png" class="del"></td>
           </tr>
         </tbody>
       </table>
@@ -41,12 +41,21 @@
       </div>
       
     </div>
+    <Footer></Footer>
   </div>
 
 </template>
 
 <script>
+
+import Header from "@/components/Header.vue"
+import Footer from "@/components/Footer.vue"
 export default {
+  name:"productList",
+  components: {
+    Header,
+    Footer
+  },
   data(){
     return{
       product:[],
@@ -54,22 +63,44 @@ export default {
   },
   methods:{
     
+    payAll(){
+      var str="";
+      for(var item of this.product){
+        if(item.cb){
+          str+=item.cid+","
+        }
+      }
+      str=str.substring(0,str.length-1);
+      console.log(str);
+      if(str.length==0){
+        alert("请选中商品");
+        return;
+      }
+      var url="delAll";
+      var obj={ids:str};
+      this.axios.get(url,{params:obj}).then(
+        result=>{
+          this.loadMore();
+          alert("付款成功")
+        })
+    },
     delAll(){
       //删除多个商品
       //1：创建变量保存空字符串
       var str="";
+
       //2:创建循环拼接字符串内容
       for(var item of this.product){
         if(item.cb){
-          str+=item.id+","
+          str+=item.cid+","
         }
       }
       //把"1,6,"截取成"1,6"
       str=str.substring(0,str.length-1);
-      console.log(str);
+      //console.log(str);
       //3:判断用户如果没选商品提示
       if(str.length==0){
-        this.$toast("请选中商品");
+        alert("请选中商品");
         return;
       }
       //4:发送ajax请求
@@ -82,12 +113,10 @@ export default {
         })
       //5：重新加载数据
     },
-    delItem(e){
+    delItem(id){
       //1：获取当前商品的id
-      var id=e.target.dataset.id;
-      //2:显示一个交互的确认框
-      confirm("是否删除当前商品")
-      .then(action=>{
+      //var id=e.target.dataset.id;
+      console.log(id);
         var url="delItem";
         var obj={id};//{id:id}
         this.axios.get(url,{params:obj}).then(
@@ -96,9 +125,8 @@ export default {
             this.loadMore();
           }
         )
-      }).catch(err=>{
-        return;
-      })
+
+        
       //3:如果用户选中"确定"
       //4:发生ajax删除数据
       //5:如果用户选中"取消"
@@ -120,7 +148,6 @@ export default {
         //1:获取服务器数组
         var rows=result.data.data;
         if(rows.uid)
-        console.log(rows)
         //2:创建循环为数组中每个对象添加cb属性
         //cb控制商品前复选框
         for(var item of rows){
@@ -132,7 +159,7 @@ export default {
      }
   },
   created(){
-    this.loadMore()
+    this.loadMore();
   }
 }
 </script>
@@ -147,10 +174,10 @@ export default {
   display: table;
 }
 #cart{
-  margin: 60px auto 0;
+  margin: 0 auto;
 }
 div.cart_content{
-  margin:100px auto;
+  margin:80px auto 160px;
   width:90%;
 }
 div.cart_content>h3{
@@ -204,7 +231,18 @@ tr,td{
 .pay>span{
   position:absolute;
   top:80px;
-  right:80px;
+  left:49%;
+}
+.pay>span>a{
+  display: block;
+  text-decoration: none;
+  width:120px;
+  height:35px;
+  border-radius: 5px;
+  line-height: 35px;
+  text-align: center;
+  color:#fff;
+  background:#ff8b64;
 }
 </style>
 
