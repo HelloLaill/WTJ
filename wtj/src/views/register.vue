@@ -25,7 +25,7 @@
         </li>
         <li align="center">
           <span class="my-ulFont">我已有账号</span>
-          <a href="" class="login-a"><span>立即登录</span></a>
+          <router-link :to="{path:'/login'}" class="login-a"><span>立即登录</span></router-link>
         </li>
       </ul>
     </div>

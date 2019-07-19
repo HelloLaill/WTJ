@@ -132,6 +132,8 @@ server.get("/delAll",(req,res)=>{
   })
 });
 
+
+
 //商品分页显示
 server.get("/productList",(req,res)=>{
   var sid=req.query.id;

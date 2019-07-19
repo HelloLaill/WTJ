@@ -3,14 +3,16 @@
       <!--1.轮播图片-->
     <div class="carousel-inner" :class="ulClass" :style="ulStyle">
       <div v-for="(img,i) of imgs" :key="i" class="carousel-item" :style="{width:innerWidth+'px'}">
-        <router-link to="javascript:;">
-          <img :src="'http://127.0.0.1:3000/'+imgs[i]" style="width:620px;"/>
+        <router-link :to="img.to">
+          <img :src="img.src" style="width:620px;"/>
         </router-link>
+        <router-link :to="img.to" ></router-link>
       </div>
       <div class="carousel-item" :style="{width:innerWidth+'px'}">
-        <router-link to="javascript:;" >
-          <img :src="'http://127.0.0.1:3000/'+imgs[0]" style="width:620px;"/>
+        <router-link :to="imgs[0].to" >
+          <img :src="imgs[0].src" style="width:620px;"/>
         </router-link>
+        <router-link :to="imgs[0].to"></router-link>
       </div>
     </div>
     <!--2.左右箭头-->
@@ -34,10 +36,28 @@ export default {
       innerWidth:window.innerWidth,
       ulClass:{ hasTrans:true },
       i:0,
-      props:{
-        id:["id"]
-      },
       imgs:[
+        {
+          src:"image/ct1_lg_1.png",
+          title:"《Ghost Mane》| STARR J与恶魔一起住在Dark Castle",
+          to:"javascript:;"
+        },
+        { 
+          src:"image/ct2_lg_1.png",
+          title:"赐我们一首比“情歌而已”更值得唱的歌 声音碎片第三支预热单曲《送流水》首发",
+          to:"javascript:;"
+        },
+        { 
+          src:"image/ct3_lg_1.png",
+          title:"我眼里只有一个3号他永远昂着头 | 黄旭全新单曲《低位》致敬韦德",
+          to:"javascript:;"
+        },
+        { 
+          src:"image/ct4_lg_1.png",
+          title:"彭坦春晓携女率性玩音乐 Modern Sky Kids厂牌汇聚亲子市场新能量",
+          to:"javascript:;"
+        }
+        
       ],
       canClick:true,
       timer:null
@@ -48,20 +68,8 @@ export default {
       this.innerWidth=window.innerWidth;
     })
     this.start();
-    this.loadMore(this.$route.params.id);
   },
   methods:{
-    loadMore(id){
-    var url="product";
-    var obj={id};
-      	this.axios.get(url,{params:obj}).then(result=>{
-          var img1=result.data.data[0].lg;
-          var img2=result.data.data[0].lg_1;
-          
-          this.imgs=[img1,img2]
-          console.log(this.imgs)
-      })
-	  },
     stop(){
       clearInterval(this.timer);
     },

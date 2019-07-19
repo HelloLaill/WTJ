@@ -32,6 +32,7 @@ export default {
     Header,
     Footer
   },
+  
   data(){
     return{
       list:[],
@@ -40,18 +41,39 @@ export default {
     }
   },
   methods:{
+    
    loadMore(){
      var url="productList";
       this.pno++;
       var obj={pno:this.pno,pageSize:this.ps,id:this.$route.params.id};
+<<<<<<< HEAD
       this.axios.get(url,{params:obj}).then(result=>{
         var rows=this.list.concat(result.data.data);
         this.list=rows;
+=======
+      this.axios.get(url,{params:obj}).then(result=>{     
+        var rows=this.list.concat(result.data.data);
+        this.list=rows;
+        
+        //this.reload()
+>>>>>>> fcd42264791ff568441b654c6a2eb01024786ba1
       })
-    }
+    },
+    // more(){
+    //   var url="productListmore";
+    //   this.pno++;
+    //   var obj={pno:this.pno,pageSize:this.ps,id:this.$route.params.id};
+    //   this.axios.get(url,{params:obj}).then(result=>{     
+    //     var rows=this.list.concat(result.data.data);
+    //     this.list=rows;
+    //     //loadMore();
+    //     //this.reload()
+    //   })
+    // }
   },
   created(){
     this.loadMore();
+    //this.more(this.$route.params.id)
   }
 }
 </script>
