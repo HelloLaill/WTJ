@@ -1,57 +1,54 @@
 <template>
   <div id="product">
     <Header></Header>
-    <div class="product_details" v-for="(item,i) of list" :key="i">
-      <div class="banner_all_box">
-        <!-- 导航栏部分 -->
-        <div class="productdetails_nav">
-          <a href="javascript:;">首页</a>
-          <i>&gt;</i>
-          <a href="javascript:;">商品</a>
-          <i>&gt;</i>
-          <a href="javascript:;">{{item.pname}}</a>
-        </div>
+    <div class="banner_all_box">
+      <!-- 导航栏部分 -->
+      <div class="productdetails_nav">
+        <a href="#">首页</a>
+        <i>&gt;</i>
+        <a href="#">商品</a>
+        <i>&gt;</i>
+        <a href="#" title="帕拉多米简约现代麻布面料混色休闲椅">帕拉多米简约现代麻布面料混色休闲椅</a>
       </div>
-      <!-- 轮播 -->
-      <Carousel v-bind:id="id"></Carousel>
-      <!-- 商品描述 -->
-      <div class="detail">
-        <div class="top">
-          <span>商品描述</span>
+    </div>
+	<!-- 轮播 -->
+	<Carousel></Carousel>
+	<!-- 商品描述 -->
+    <div class="detail">
+      <div class="top">
+        <span>商品描述</span>
+      </div>
+      <!-- 商品故事 -->
+      <div class="stroy">
+        <h2 class="h2">商品故事</h2>
+        <div class="span1">圆润外观,胖胖的身材,给你更多安全感,让身体沉浸在沙发的舒适怀抱中</div>
+        <span class="bor"></span>
+      </div>
+      <!-- 商品参数 -->
+      <div class="specs">
+        <h2 class="h2">商品参数</h2>
+        <div class="span1">
+          <div class="name"><span class="specss">商品名称： </span></div>
+          <div class="title"><span class="specsss">商品故事： </span></div>
+          <div class="spec"><span class="specss">商品规格： </span></div>
+          <div class="color"><span class="specsss">商品颜色： </span></div>
+          <div class="type_style"><span class="specss">商品风格： </span></div>
+          <div class="style_id"><span class="specsss">商品系列： </span></div>
         </div>
-        <!-- 商品故事 -->
-        <div class="stroy">
-          <h2 class="h2">商品故事</h2>
-          <div class="span1">{{item.ptitle}}</div>
-          <span class="bor"></span>
+        <div class="cart">
+          <div class="price">商品价格： </div>
+          <a href="" class="cartBtn">加入购物车</a>
         </div>
-        <!-- 商品参数 -->
-        <div class="specs">
-          <h2 class="h2">商品参数</h2>
-          <div class="span1">
-            <div class="name"><span class="specss">商品名称： {{item.pname}}</span></div>
-            <div class="title"><span class="specsss">商品故事： <span>{{item.ptitle}}</span></span></div>
-            <div class="spec"><span class="specss">商品规格： {{item.spec}}</span></div>
-            <div class="color"><span class="specsss">商品颜色： {{item.color}}</span></div>
-            <div class="type_style"><span class="specss">商品风格： {{item.type_style}}</span></div>
-            <div class="style_id"><span class="specsss">商品系列： {{item.sname}}</span></div>
-          </div>
-          <div class="cart">
-            <div class="price">商品价格： <span>￥{{item.price.toFixed(2)}}</span></div>
-            <div class="cartBtn" @click="addCart">加入购物车</div>
-          </div>
-          <span class="bor"></span>
-        </div>
-        <!-- 规格图片 -->
-        <div class="proImg clear">
-          <h2 class="h2">规格图片</h2>
-          <div class="img">
-            <img :src="'http://127.0.0.1:3000/'+item.d">
-          </div>
+        <span class="bor"></span>
+      </div>
+      <!-- 规格图片 -->
+      <div class="proImg clear">
+        <h2 class="h2">规格图片</h2>
+        <div class="img">
+          <img src="../assets/img/3.png">
         </div>
       </div>
     </div>
-    <div><a href="#" class="totop"></a></div>
     <Footer></Footer>
   </div>
 
@@ -64,37 +61,11 @@ export default {
   name:"productList",
   components: {
     Header,
-	  Footer,
-	  Carousel
+	Footer,
+	Carousel
   },
   data(){
-    return{
-      list:[],
-      id:this.$route.params.id
-    }
-  },
-  methods:{
-	  loadMore(id){
-    var url="product";
-    var obj={id};
-      	this.axios.get(url,{params:obj}).then(result=>{
-          var rows=result.data.data;
-          this.list=rows;
-          //console.log(this.list[0])
-      })
-    },
-    addCart(id){
-    var id=this.$route.params.id;
-    console.log(id);
-    var url="addCart";
-    var obj={id};
-      	this.axios.get(url,{params:obj}).then(result=>{
-          alert("加入成功")
-      })
-	  },
-  },
-  created(){
-  this.loadMore(this.$route.params.id);
+    return{}
   }
 }
 </script>
@@ -162,24 +133,11 @@ export default {
   background:#eee;
 }
 .specsss{background:#fff}
-.title{
-  width:600px;
-  height:40px;
-  position: relative;
-}
-.title>span>span{
-  display: inline-block;
-  position: absolute;
-  top:0;left:73px;
-    display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp:2;
-  overflow: hidden;
-}
+
 .name,.spec,.type_style{
   padding:5px 0;
 }
-.price>span{color:#ff8b64}
+
 .cart{
   border:1px solid #ccc;
   width:300px;
@@ -193,6 +151,7 @@ export default {
   padding:20px 0;
 }
 .cartBtn{
+  display: block;
   width: 100px;
   height: 35px;
   border-radius: 5px;
@@ -202,7 +161,6 @@ export default {
   text-align: center;
   line-height: 35px;
   margin: 0 auto;
-  cursor:pointer;
 }
 .proImg{
   width: 90%;
@@ -214,15 +172,5 @@ export default {
 }
 .img>img{
   width:620px;
-}
-.totop{
-  display: block;
-  position: fixed;
-  bottom:50px;
-  right:50px;
-  background:#ccc url(../assets/img/totop.png) no-repeat center center;
-  border-radius: 50%;
-  width: 40px;
-  height:40px;
 }
 </style>

@@ -4,13 +4,13 @@
     <div class="carousel-inner" :class="ulClass" :style="ulStyle">
       <div v-for="(img,i) of imgs" :key="i" class="carousel-item" :style="{width:innerWidth+'px'}">
         <router-link :to="img.to">
-          <img :src="img.src" style="width:620px;"/>
+          <img :src="img.src" style="width:100%;"/>
         </router-link>
         <router-link :to="img.to" ></router-link>
       </div>
       <div class="carousel-item" :style="{width:innerWidth+'px'}">
         <router-link :to="imgs[0].to" >
-          <img :src="imgs[0].src" style="width:620px;"/>
+          <img :src="imgs[0].src" style="width:100%;"/>
         </router-link>
         <router-link :to="imgs[0].to"></router-link>
       </div>
@@ -38,26 +38,20 @@ export default {
       i:0,
       imgs:[
         {
-          src:"image/ct1_lg_1.png",
+          src:"image/1.jpg",
           title:"《Ghost Mane》| STARR J与恶魔一起住在Dark Castle",
           to:"javascript:;"
         },
         { 
-          src:"image/ct2_lg_1.png",
+          src:"image/2.jpg",
           title:"赐我们一首比“情歌而已”更值得唱的歌 声音碎片第三支预热单曲《送流水》首发",
           to:"javascript:;"
         },
         { 
-          src:"image/ct3_lg_1.png",
+          src:"image/3.jpg",
           title:"我眼里只有一个3号他永远昂着头 | 黄旭全新单曲《低位》致敬韦德",
           to:"javascript:;"
         },
-        { 
-          src:"image/ct4_lg_1.png",
-          title:"彭坦春晓携女率性玩音乐 Modern Sky Kids厂牌汇聚亲子市场新能量",
-          to:"javascript:;"
-        }
-        
       ],
       canClick:true,
       timer:null
@@ -164,7 +158,7 @@ export default {
   .carousel-control-prev{left:40px;}
   .carousel-control-next{right:40px;}
   .jiantou{
-    color:rgba(0,0,0,0.5);
+    color:rgba(255,255,255,0.5);
     font-size: 60px;
     line-height:100px;
   }

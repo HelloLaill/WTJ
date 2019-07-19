@@ -16,7 +16,7 @@
                 <img src="../assets/img/cart.png" />
                 <span>购物车</span>
             </router-link>
-            <router-link :to="{path:'/'}">
+            <router-link :to="{path:'/login'}">
                 <span>
                     <img src="../assets/img/login-no.png" alt=""/>
                     <img src="../assets/img/arrow-3.png" alt=""/>
