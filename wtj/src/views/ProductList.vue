@@ -43,16 +43,10 @@ export default {
    loadMore(){
      var url="productList";
       this.pno++;
-      var obj={pno:this.pno,pageSize:this.ps};
+      var obj={pno:this.pno,pageSize:this.ps,id:this.$route.params.id};
       this.axios.get(url,{params:obj}).then(result=>{
-        //数据覆盖
-        //this.list=result.data.data;
-        //数据追加
-        //concat连接两个或多个数组 
         var rows=this.list.concat(result.data.data);
         this.list=rows;
-        console.log(rows);
-        console.log(result.data.data);
       })
     }
   },

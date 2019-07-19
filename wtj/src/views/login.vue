@@ -29,7 +29,8 @@
           </li>
           <li align="center">
             <span class="my-ulFont1">还不是会员？</span>
-            <a href="" class="upwd-a"><span>立即注册</span></a>
+            <router-link :to="{path:'/register'}" class="upwd-a"><span>立即注册</span>
+            </router-link>
           </li>
         </ul>
       </div>
@@ -67,7 +68,15 @@ export default {
       this.axios.get(url,{params:obj}).then(result=>{
         console.log(result);
         if(result.data.code>0){
-          this.$router.push("/user")
+          // //将用户名和token放入sessionStorage
+          // sessionStorage.setItem("userName",result.data.data[0].uname);
+          // //sessionStorage.setItem("userToken",result.data.data[0].upwd);
+          // //将用户名放入vuex
+          // this.$store.dispatch("setUser",result.data.data[0].uname)
+          // //this.$store.dispatch("setToken",result.data.data[0].upwd)
+          // console.log(this.$store.state.isLogin)
+          var uid=result.data.data[0].uid;
+          this.$router.push({name:"/",params:{uid:uid}});
         }else{
           alert("用户名或密码错误")
         }

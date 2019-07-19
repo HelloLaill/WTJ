@@ -240,14 +240,19 @@ INSERT INTO wtj_product_img VALUES(NULL,44,'image/mt8_sm_1.png','image/mt8_lg_1.
 #首页展示产品表
 CREATE TABLE wtj_index_product(
   index_id INT PRIMARY KEY AUTO_INCREMENT,
-  title VARCHAR(64),
-  details VARCHAR(128),
-  pic VARCHAR(128),
+  pname VARCHAR(64),
+  ptitle VARCHAR(128),
+  spec VARCHAR(128),
   price DECIMAL(10,2),
-  href VARCHAR(128),
-  style_id INT
+  lg VARCHAR(128),
+  pid INT
 );
-INSERT INTO wtj_index_product VALUES(NULL,'斯品北欧宜家绦棉面料深蓝色布艺沙发','圆润外观,胖胖的身材,给你更多安全感,让身体沉浸在沙发的舒适怀抱中','http://img2.wutuojia.com/pic/qty_large/product/t81/b389/20160721/094339_385822.png',4464,'http://www.wutuojia.com/item/8779.html','客厅');
-INSERT INTO wtj_index_product VALUES(NULL,'
-帕拉多米简约现代麻布面料混色休闲椅','简约大气的设计，落落大方的款式','http://img2.wutuojia.com/pic/qty_large/product/t98/b415/20160819/171826_983572.png',1880,'http://www.wutuojia.com/item/9317.html','卧室');
+INSERT INTO wtj_index_product VALUES(NULL,'九五泊系列北欧宜家E1中纤板白色PU油漆鞋柜','慵懒从容的生活基调体现了此间主任阔达看世的气度','880*400*1150',2500,'image/mt8_lg_1.png',44);
+INSERT INTO wtj_index_product VALUES(NULL,'斯品北欧宜家绦棉面料深蓝色布艺沙发','圆润外观,胖胖的身材,给你更多安全感,让身体沉浸在沙发的舒适怀抱中','800L*800W*880Hmm ',4464,'image/safa2_lg_1.png',2);
+INSERT INTO wtj_index_product VALUES(NULL,'匹美北欧宜家进口油蜡皮卡其色沙发','慵懒从容的生活基调体现了阔达看世的气度。','850*800*700',2670,'image/safa6_lg_1.png',11);
+INSERT INTO wtj_index_product VALUES(NULL,'匹美北欧宜家进口油蜡皮灰色沙发','简约大气的设计，落落大方的款式。','902*756*770',3537,'image/safa7_lg_1.png',12);
+INSERT INTO wtj_index_product VALUES(NULL,'优斯特简约现代中纤板米白色书柜','简洁而精致，独特光泽家具倍感时尚，具有舒适与美观并存的享受。以简洁的造型，完美的细节，营造出时尚前卫的感觉','1600*365*2100',3450,'image/sf1_lg_1.png',29);
+INSERT INTO wtj_index_product VALUES(NULL,'尚非珍珠米黄系列简约现代高密度板米黄色书柜','简约大气的设计，落落大方的款式。','1774*430*2336',3450,'image/sf2_lg_1.png',30);
+INSERT INTO wtj_index_product VALUES(NULL,'广源简约现代水曲柳胡桃色大理石面餐桌','简约大气的设计，落落大方的款式','1400*800*760',1300,'image/ct2_lg_1.png',22);
+INSERT INTO wtj_index_product VALUES(NULL,'信颐简约现代白蜡木大理石白色餐台','流行北欧风，水曲柳材质的桌架，桌架是整装的，只需安装一件定位板即可，安装简单，大理石桌面，素雅清爽，居家百搭实用','1400*850*760',1798,'image/ct3_lg_1.png',23);
 

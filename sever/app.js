@@ -35,17 +35,18 @@ server.listen(3000)
 server.get("/login",(req,res)=>{
   var uname=req.query.uname;
   var upwd=req.query.upwd;
-  var sql = "SELECT uid FROM wtj_user WHERE uname = ? AND upwd = ?";
+  var sql = "SELECT * FROM wtj_user WHERE uname = ? AND upwd = ?";
   pool.query(sql,[uname,upwd],(err,result)=>{
     if(err)throw err;
     var dataString = JSON.stringify(result);
     var result = JSON.parse(dataString);
     if(result.length==0){
-       res.send({code:-1,msg:"用户名或密码有误"});
+       res.send({code:-1,data:result});
     }else{
-      req.session.uid = 
-      result[0].uid;
-      res.send({code:1,msg:"登录成功"});
+      req.session.uid = result[0].uid;
+      //console.log(result);
+      //console.log(req.session.uid)
+      res.send({code:1,data:result});
     }
   })
 })
@@ -58,7 +59,7 @@ server.get("/register",(req,res)=>{
   var sql="INSERT INTO wtj_user (uname,phone,email,upwd) VALUES (?,?,?,?)";
   pool.query(sql,[uname,phone,email,upwd],(err,result)=>{
     if(err)throw err;
-    console.log(result);
+    //console.log(result);
     if(result.length==0){
       res.send({code:-1,msg:"注册失败"});
     }else{
@@ -67,11 +68,13 @@ server.get("/register",(req,res)=>{
   })
 })
 
+
 //查询指定用户购物车列表
 server.get("/cart",(req,res)=>{
   //1:参数(无参数)
   //console.log(req.session.uid);
-  var uid=1;
+  var uid=req.session.uid;
+  //console.log(uid);
   var output={
     product:{}
   }
@@ -81,7 +84,7 @@ server.get("/cart",(req,res)=>{
   }
   //2:sql
   var sql="select wtj_product.pname,wtj_product.spec,wtj_product.price,wtj_user.uid,wtj_product.pid,wtj_cart.cid,wtj_cart.count,wtj_product_img.sm from wtj_user,wtj_cart,wtj_product,wtj_product_img where wtj_user.uid=wtj_cart.user_id and wtj_product.pid=wtj_cart.product_id and wtj_product.pid=wtj_product_img.product_id and wtj_user.uid=?";
-  pool.query(sql,1,(err,result)=>{
+  pool.query(sql,[uid],(err,result)=>{
     if(err)throw err;
     res.send({code:1,data:result})
     output.product=result[0];
@@ -95,19 +98,19 @@ server.get("/cart",(req,res)=>{
 server.get("/delItem",(req,res)=>{
   //1:参数购物车id
   var id = req.query.id;
-  console.log(id+"id")
+  //console.log(id+"id")
   //2:sql 删除指定数据
   var sql = "DELETE FROM wtj_cart WHERE cid = ?";
   //3:json
   pool.query(sql,[id],(err,result)=>{
     if(err)throw err;
-    console.log(result);
+    //console.log(result);
     if(result.affectedRows>0){
       res.send({code:1,msg:"删除成功"});
-      console.log("成功")
+      //console.log("成功")
     }else{
       res.send({code:-1,msg:"删除失败"});
-      console.log("失败")
+      //console.log("失败")
     }
   })
 });
@@ -131,7 +134,7 @@ server.get("/delAll",(req,res)=>{
 
 //商品分页显示
 server.get("/productList",(req,res)=>{
-  var sid=1;
+  var sid=req.query.id;
   var pno = req.query.pno;
    var ps = req.query.pageSize;
    // -设置默认值
@@ -150,7 +153,7 @@ server.get("/productList",(req,res)=>{
       var pc=Math.ceil(result[0].c/ps);
       obj.pc=pc;
       res.send(obj);
-      console.log(obj);
+      //console.log(obj);
     })
   })
 })
@@ -161,7 +164,7 @@ server.get("/product",(req,res)=>{
   var sql="select wtj_product.*,wtj_product_img.lg,wtj_product_img.d,wtj_product_img.lg_1,wtj_product_style.sname from wtj_product,wtj_product_img,wtj_product_style where wtj_product.pid=wtj_product_img.product_id and wtj_product.style_id=wtj_product_style.style_id and wtj_product.pid=?"
   pool.query(sql,[id],(err,result)=>{
     if(err)throw err;
-    console.log(result);
+    //console.log(result);
     res.send({code:1,data:result});
   })
 })
@@ -171,11 +174,21 @@ server.get("/product",(req,res)=>{
 server.get("/addCart",(req,res)=>{
   var pid=req.query.id;
   //var uid=req.session.uid;
-  var uid=1;
-  var sql ="insert into wtj_cart values(NULL,?,?,1)";
+  var uid=req.session.uid;
+  var sql ="insert into wtj_cart values(NULL,?,?,?)";
   pool.query(sql,[uid,pid],(err,result)=>{
     if(err)throw err;
     res.send(result);
-    console.log(result);
+    //console.log(result);
+  })
+})
+
+//首页推荐
+server.get("/home",(req,res)=>{
+  var sql="select * from wtj_index_product"
+  pool.query(sql,(err,result)=>{
+    if(err)throw err;
+    //console.log(result);
+    res.send({code:1,data:result});
   })
 })
