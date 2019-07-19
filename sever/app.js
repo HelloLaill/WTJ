@@ -43,8 +43,6 @@ server.get("/login",(req,res)=>{
     if(result.length==0){
        res.send({code:-1,msg:"用户名或密码有误"});
     }else{
-      req.session.uid = 
-      result[0].uid;
       res.send({code:1,msg:"登录成功"});
     }
   })
@@ -128,6 +126,8 @@ server.get("/delAll",(req,res)=>{
     }
   })
 });
+
+
 
 //商品分页显示
 server.get("/productList",(req,res)=>{

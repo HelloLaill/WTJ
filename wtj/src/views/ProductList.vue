@@ -41,21 +41,33 @@ export default {
     }
   },
   methods:{
-   loadMore(id){
-     console.log(id);
+    
+   loadMore(){
      var url="productList";
       this.pno++;
-      var obj={pno:this.pno,pageSize:this.ps,id:id};
+      var obj={pno:this.pno,pageSize:this.ps,id:this.$route.params.id};
       this.axios.get(url,{params:obj}).then(result=>{     
         var rows=this.list.concat(result.data.data);
         this.list=rows;
         
         //this.reload()
       })
-    }
+    },
+    // more(){
+    //   var url="productListmore";
+    //   this.pno++;
+    //   var obj={pno:this.pno,pageSize:this.ps,id:this.$route.params.id};
+    //   this.axios.get(url,{params:obj}).then(result=>{     
+    //     var rows=this.list.concat(result.data.data);
+    //     this.list=rows;
+    //     //loadMore();
+    //     //this.reload()
+    //   })
+    // }
   },
   created(){
-    this.loadMore(this.$route.params.id);
+    this.loadMore();
+    //this.more(this.$route.params.id)
   }
 }
 </script>

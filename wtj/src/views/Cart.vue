@@ -138,7 +138,6 @@ export default {
       //依据状态修改列表cb
       for(var item of this.product){
         item.cb=cb;
-        
       }
     },
     loadMore(){
